@@ -5,7 +5,7 @@ import csv
 sender="hackoclock.gdgiilm@gmail.com"
 password="txwd rdnv vfnr baww"
 
-
+count=0
 
 context=ssl.create_default_context()
 connection=smtplib.SMTP_SSL("smtp.gmail.com",465,context=context)
@@ -62,7 +62,8 @@ Content-Type: text/plain; charset=utf-8
     
     
     connection.sendmail(sender,receiver,message.encode('utf-8'))
-    print("Mail sent to",i[0])
+    print("Mail",count," sent to",i[0])
+    count+=1
     
     f1=open("done.csv","a+")
     csvwriter=csv.writer(f1,delimiter=",")
