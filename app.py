@@ -11,8 +11,9 @@ context=ssl.create_default_context()
 connection=smtplib.SMTP_SSL("smtp.gmail.com",465,context=context)
 connection.login(sender,password)
 
-f=open("contacts.csv")
+f=open("contacts.csv","r")
 data=csv.reader(f)
+
 for i in data:
     
     comp_name=i[0]
@@ -61,7 +62,12 @@ Content-Type: text/plain; charset=utf-8
     
     
     connection.sendmail(sender,receiver,message.encode('utf-8'))
-    print("Mail sent to",i[0],i[1])
+    print("Mail sent to",i[0])
+    
+    f1=open("done.csv","a+")
+    csvwriter=csv.writer(f1,delimiter=",")
+    csvwriter.writerow(i)
+    f1.close()
     
     
     
