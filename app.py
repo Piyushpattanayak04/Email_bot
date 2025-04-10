@@ -2,8 +2,8 @@ import smtplib,ssl
 import csv
 
 
-sender="lolachoda22@gmail.com"
-password="jifb hniw lbdi vkpx"
+sender="hackoclock.gdgiilm@gmail.com"
+password="txwd rdnv vfnr baww"
 
 
 
