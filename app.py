@@ -2,8 +2,8 @@ import smtplib,ssl
 import csv
 
 
-sender="hackoclock.gdgiilm@gmail.com"
-password="txwd rdnv vfnr baww"
+sender="hackoclock.gdg@gmail.com"
+password="vkjx liwb swqe ofbk"
 
 count=0
 
@@ -11,43 +11,41 @@ context=ssl.create_default_context()
 connection=smtplib.SMTP_SSL("smtp.gmail.com",465,context=context)
 connection.login(sender,password)
 
-f=open("contacts.csv","r")
+f=open("devFolio.csv","r")
 data=csv.reader(f)
 
 for i in data:
     
-    comp_name=i[0]
+    teamName=i[2]
+    memberName=i[0]
+    receiver=i[1]
+    securityCode=i[3]
     
-    receiver=i[3]
-    
-    subject="Sponsorship Opportunity: 24-Hour Hackathon at IILM University by GDG Club"
-    body=f'''Dear Team {comp_name},
+    subject="🚨 Final Team Guidelines for Hack O'Clock – Don't Miss These Essentials!"
+    body=f'''Dear {memberName} of Team {teamName},  
 
-I hope this message finds you well!
+Hope you're doing great!  
 
-I am writing on behalf of the *GDG Club of IILM University* since we are hosting a thrilling *24-hour Hackathon—an event that has already received more than **1200+ registrations, with **300+ students* likely to be attending on the last day. This will provide an excellent chance for {comp_name}, to interact with a very engaged and technology-friendly audience.
+We’re thrilled to have your teams on board for Hack O'Clock! Please carefully go through the following important guidelines to ensure a smooth and successful experience:
 
-We would be more than happy to have *{comp_name}*, as one of our main sponsors!
+1. Team Login & App Access:  
+   Each team will receive a unique ID: {securityCode} to log into our official app along with their registered email to which this email has been sent. The app will be used exclusively for check-in, check-out, and accessing meal schedules. Make sure all team members are familiar with the app before the event.
 
-By collaborating with us, {comp_name},would enjoy *considerable exposure and brand visibility* through:
+2. Team Composition:  
+   It is mandatory to have exactly four members in each team. Teams with less than four members will be disqualified from the competition, so please ensure your team meets this requirement without fail.
 
-- *Direct interaction with 300+ students* on the event day
-- *Branding on-site opportunities*: Flyers, banners, and posters
-- *Social media promotion: We will post and share **specific reels and shoutouts* on our Instagram and LinkedIn accounts
-- Your *prominent logo* on all event-related documents, including flyers, posters, and digital advertising
+3. No Hardware Allowed:
+   Please note that Hack O'Clock is a software-only hackathon. The use of any hardware components is not permitted. All project development should be strictly software-based.
 
-We think your platform fits in beautifully with the developer-first ethos of the event, and we'd love to introduce your brand to a crowd of future engineers, developers, and tech leaders.
+4. ID Verification:
+   All participants are required to bring a valid government-issued ID and their college ID for on-site verification. Entry will not be permitted without both IDs.
 
-Looking forward to the chance to work together. Let us know if you'd be interested in chatting more about this—we'd be delighted to provide more information and sponsorship options.
+If you have any questions or need further assistance, feel free to reach out. We're looking forward to hosting you and witnessing some incredible innovations!
 
-Warm regards,
-Tanmay Jain
-Sponsorship Lead
-Google Developers Group IILM University
-📞 +91 8266009496
-Chapter Link | LinkedIn | Instagram
-
-FIND THE BROCHURE BY CLICKING THIS LINK FOR MORE DETALS : https://drive.google.com/file/d/1iz8fIK0FNNvi98brzOnhYHon9eqUe1xY/view?usp=sharing
+Best regards,  
+Piyush Pattanayak  
+Team GDG IILM  
+Hack O'Clock Coordinator
 
 '''
     
@@ -65,7 +63,7 @@ Content-Type: text/plain; charset=utf-8
     print("Mail",count," sent to",i[0])
     count+=1
     
-    f1=open("done.csv","a+")
+    f1=open("devFolioDone.csv","a+")
     csvwriter=csv.writer(f1,delimiter=",")
     csvwriter.writerow(i)
     f1.close()
