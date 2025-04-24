@@ -11,7 +11,7 @@ context=ssl.create_default_context()
 connection=smtplib.SMTP_SSL("smtp.gmail.com",465,context=context)
 connection.login(sender,password)
 
-f=open("devFolio.csv","r")
+f=open("test.csv","r")
 data=csv.reader(f)
 
 for i in data:
