@@ -1,2 +1,5 @@
-*.csv
-!test.csv
+contacts.csv
+contacts2.csv
+devFolio.csv
+devFolioDone.csv
+done.csv
