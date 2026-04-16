@@ -1,6 +1,3 @@
-contacts.csv
-contacts2.csv
-devFolio.csv
-devFolioDone.csv
-done.csv
+*.csv
+!test.csv
 google-services.json
