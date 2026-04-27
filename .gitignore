@@ -1,3 +1,4 @@
 *.csv
 !test.csv
 google-services.json
+done.csv
